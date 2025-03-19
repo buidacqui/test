@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách Dự Án</title>
+    <link rel="stylesheet" href="{% static 'app/style.css' %}">
+</head>
+<body>
+    <h2>Danh sách Dự Án</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Tiêu đề</th>
+                <th>Mô tả</th>
+                <th>Nhân viên tham gia</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for project in projects %}
+            <tr>
+                <td><strong>{{ project.title }}</strong></td>
+                <td>{{ project.description }}</td>
+                <td>
+                    <ul>
+                        {% for employee in project.employees.all %}
+                            <li>{{ employee.name }}</li>
+                        {% empty %}
+                            <li>Không có nhân viên</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3" style="text-align: center;">Không có dự án</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="{% url 'home' %}">Quay lại Trang Chủ</a>
+</body>
+</html>

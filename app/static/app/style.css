@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #ffffff;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+table {
+    inline-size: 100%;
+    border-collapse: collapse;
+    margin-block-start: 20px;
+    background: white;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: start;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+tr:hover {
+    background-color: #428a87;
+}
+.container {
+    margin-block-start: 50px;
+    text-align: center;
+}
+.card {
+    border-radius: 15px;
+    transition: transform 0.3s;
+}
+.card:hover {
+    transform: scale(1.05);
+}
